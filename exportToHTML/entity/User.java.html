@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>User.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+User.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">entities</span><span class="s2">;</span>
+
+
+<span class="s0">import </span><span class="s1">io</span><span class="s2">.</span><span class="s1">quarkus</span><span class="s2">.</span><span class="s1">hibernate</span><span class="s2">.</span><span class="s1">orm</span><span class="s2">.</span><span class="s1">panache</span><span class="s2">.</span><span class="s1">PanacheEntity</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">jakarta</span><span class="s2">.</span><span class="s1">persistence</span><span class="s2">.*;</span>
+<span class="s0">import </span><span class="s1">lombok</span><span class="s2">.*;</span>
+
+<span class="s1">@Entity</span>
+<span class="s1">@Table</span><span class="s2">(</span><span class="s1">name </span><span class="s2">= </span><span class="s3">&quot;users&quot;</span><span class="s2">)</span>
+<span class="s1">@Getter</span>
+<span class="s1">@Setter</span>
+<span class="s1">@AllArgsConstructor</span>
+<span class="s1">@NoArgsConstructor</span>
+<span class="s1">@ToString</span>
+<span class="s0">public class </span><span class="s1">User  </span><span class="s2">{</span>
+
+    <span class="s1">@Id</span>
+    <span class="s1">@GeneratedValue</span><span class="s2">(</span><span class="s1">strategy </span><span class="s2">= </span><span class="s1">GenerationType</span><span class="s2">.</span><span class="s1">IDENTITY</span><span class="s2">)</span>
+    <span class="s0">private </span><span class="s1">Long userId</span><span class="s2">;</span>
+    <span class="s1">@Column</span><span class="s2">(</span><span class="s1">name </span><span class="s2">= </span><span class="s3">&quot;name&quot;</span><span class="s2">)</span>
+    <span class="s0">private </span><span class="s1">String name</span><span class="s2">;</span>
+    <span class="s1">@Column</span><span class="s2">(</span><span class="s1">name </span><span class="s2">= </span><span class="s3">&quot;age&quot;</span><span class="s2">)</span>
+    <span class="s0">private int </span><span class="s1">age</span><span class="s2">;</span>
+    <span class="s1">@Column</span><span class="s2">(</span><span class="s1">name </span><span class="s2">= </span><span class="s3">&quot;balance&quot;</span><span class="s2">)</span>
+    <span class="s0">private double </span><span class="s1">balance</span><span class="s2">;</span>
+    <span class="s1">@Column</span><span class="s2">(</span><span class="s1">name </span><span class="s2">= </span><span class="s3">&quot;quantity&quot;</span><span class="s2">)</span>
+    <span class="s0">private int </span><span class="s1">quantity</span><span class="s2">;</span>
+
+
+
+
+
+
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
