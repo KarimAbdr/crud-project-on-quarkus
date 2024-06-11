@@ -14,7 +14,10 @@ import java.util.List;
 )
 public interface UserMapper {
     mappers.UserMapper INSTANCE = Mappers.getMapper(Mappers.getMapperClass(UserMapper.class));
+
     UserDTO userToUserDTO(User user);
+
     List<UserDTO> userToUserDTO(List<User> users);
+
     User userDTOtoUser(UserDTO userDTO);
 }

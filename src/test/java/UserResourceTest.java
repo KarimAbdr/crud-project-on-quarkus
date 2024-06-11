@@ -1,3 +1,4 @@
+import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.describedAs;
@@ -10,7 +11,7 @@ import static org.hamcrest.Matchers.equalTo;
      void getAllUsers(){
         String query = "query: \"query{↵ GetAllUsers{↵ userId↵ name↵ age↵ balance↵ quantity↵ }";
         given()
-                .contentType("application/json")
+                .contentType(ContentType.JSON)
                 .body(query)
                 .log().all()
                 .when().post(url).then()
@@ -21,7 +22,7 @@ import static org.hamcrest.Matchers.equalTo;
     @Test
      void findById(){
         String query = "query{↵ FindById(id: 1) {↵ name↵ age↵ balance↵ quantity↵ }↵}↵";
-        given().contentType("application/json").body(query)
+        given().contentType(ContentType.JSON).body(query)
                 .log().all()
                 .when().post(url)
                 .then()
@@ -32,7 +33,7 @@ import static org.hamcrest.Matchers.equalTo;
     @Test
      void createUser(){
         String mutation = "{\"query\":\"mutation { CreateUser(user: { name: \\\"Alfa\\\", age: 30, balance: 100.0, quantity: 5 }) { name, userId } }\"}";
-        given().contentType("application/json").body(mutation)
+        given().contentType(ContentType.JSON).body(mutation)
                 .post(url)
                 .then().assertThat().statusCode(200)
                 .and().body("data.CreateUser.name", equalTo("Alfa"))

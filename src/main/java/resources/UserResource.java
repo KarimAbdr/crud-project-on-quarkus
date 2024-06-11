@@ -10,6 +10,7 @@ import services.UserService;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @GraphQLApi
 public class UserResource {
@@ -27,17 +28,17 @@ public class UserResource {
     }
 
     @Mutation("createUser")
-    public User createUser(User user) {
-        return userService.createUser(user);
+    public UserDTO createUser(UserDTO userDTO) {
+        return userService.createUser(userDTO);
     }
 
     @Query("findById")
-    public Optional<User> findById(long id) {
+    public Optional<UserDTO> findById(UUID id) {
         return userService.findUserById(id);
     }
 
     @Mutation("deleteUser")
-    public void delete(long id) {
+    public void delete(UUID id) {
         userService.deleteUserById(id);
     }
 }
